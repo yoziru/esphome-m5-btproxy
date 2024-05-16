@@ -1,0 +1,4 @@
+# CHANGEME: Set these variable to your liking
+title: ESPHome M5Stack BTProxy
+description: Turn your M5Stack AtomS3 Lite or NanoC6 into a bluetooth proxy for Home Assistant
+theme: jekyll-theme-hacker

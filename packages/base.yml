@@ -1,0 +1,41 @@
+substitutions:
+  friendly_name: ESPHome M5 BTProxy
+  device_name: esphome-m5-btproxy
+  device_description:  M5Stack Bluetooth Proxy
+
+esphome:
+  name: ${device_name}
+  name_add_mac_suffix: true
+  friendly_name: ${friendly_name}
+  comment: ${device_description}
+  project:
+    name: yoziru.esphome-m5-btproxy
+    version: "2024.05.15"
+
+packages:
+  common: !include common.yml
+
+logger:
+  level: INFO
+
+api:
+  encryption:
+    key: !secret api_encryption_key
+
+# sync time with home assistant
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+ota:
+  password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "{device_name}-ap"
+    password: !secret wifi_hotspot_password
+
+captive_portal:
