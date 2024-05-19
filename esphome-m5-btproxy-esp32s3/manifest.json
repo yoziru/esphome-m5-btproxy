@@ -1,0 +1,9 @@
+{
+  "chipFamily": "ESP32-S3",
+  "parts": [
+    {
+      "path": "esphome-m5-btproxy-esp32s3/esphome-m5-btproxy-esp32s3.bin",
+      "offset": 0
+    }
+  ]
+}

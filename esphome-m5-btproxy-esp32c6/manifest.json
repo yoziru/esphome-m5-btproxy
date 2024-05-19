@@ -1,0 +1,9 @@
+{
+  "chipFamily": "ESP32-C6",
+  "parts": [
+    {
+      "path": "esphome-m5-btproxy-esp32c6/esphome-m5-btproxy-esp32c6.bin",
+      "offset": 0
+    }
+  ]
+}
