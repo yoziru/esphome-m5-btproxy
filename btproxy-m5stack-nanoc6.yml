@@ -3,4 +3,4 @@ packages:
   device_base: !include boards/m5stack-nanoc6.yml
 
 dashboard_import:
-  package_import_url: github://yoziru/esphome-m5-btproxy/btproxy-m5stack-nanoc6.yml@main
+  package_import_url: github://yoziru/esphome-m5-btproxy/btproxy-m5stack-nanoc6.yml
