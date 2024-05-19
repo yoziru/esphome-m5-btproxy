@@ -10,11 +10,12 @@ esp32:
   framework:
     type: esp-idf
     version: 5.2.1
-    platform_version: 6.6.0
+    platform_version: 6.7.0
     sdkconfig_options:
       CONFIG_OPENTHREAD_ENABLED: n
       CONFIG_ENABLE_WIFI_STATION: y
       CONFIG_USE_MINIMAL_MDNS: y
+      CONFIG_ESPTOOLPY_FLASHSIZE_4MB: y
 
 light:
   - platform: status_led
