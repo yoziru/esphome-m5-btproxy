@@ -64,22 +64,3 @@ binary_sensor:
     on_press:
       then:
         - logger.log: Button Pressed
-
-
-#G4=IR
-# remote_transmitter:
-#   pin: GPIO4
-#   carrier_duty_percent: 50%
-
-# Illuminance Sensor
-i2c:
-  - id: bus_a
-    sda: 2
-    scl: 1
-    scan: true
-
-sensor:
-  - platform: bh1750
-    name: "Illuminance"
-    address: 0x23
-    update_interval: 5s
