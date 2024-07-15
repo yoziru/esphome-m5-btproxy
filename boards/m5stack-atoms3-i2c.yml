@@ -1,0 +1,15 @@
+.base: !include &base m5stack-atoms3.yml
+<<: *base
+
+# Illuminance Sensor
+i2c:
+  - id: bus_a
+    sda: 2
+    scl: 1
+    scan: true
+
+sensor:
+  - platform: bh1750
+    name: "Illuminance"
+    address: 0x23
+    update_interval: 5s
