@@ -28,3 +28,8 @@ text_sensor:
     ip_address:
       name: "IP Address"
 
+button:
+  - platform: restart
+    name: Restart
+    icon: mdi:restart
+    entity_category: diagnostic
