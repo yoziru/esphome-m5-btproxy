@@ -37,6 +37,7 @@ light:
     output: status_output
     name: "Status Led"
     internal: True
+    entity_category: diagnostic
 
   #G35=RGB WS2812C-2020
   - platform: esp32_rmt_led_strip
@@ -48,11 +49,13 @@ light:
     chipset: ws2812
     id: led
     name: "Led"
+    entity_category: diagnostic
 
 #G41=Button
 binary_sensor:
   - platform: gpio
     name: Button
+    entity_category: diagnostic
     pin:
       number: GPIO41
       inverted: true
