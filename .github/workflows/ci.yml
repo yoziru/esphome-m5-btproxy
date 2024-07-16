@@ -15,7 +15,7 @@ jobs:
           - btproxy-m5stack-atoms3.yml
           - btproxy-m5stack-nanoc6.yml
     steps:
-      - uses: actions/checkout@v4.1.4
+      - uses: actions/checkout@v4.1.7
       - name: Mock secrets.yaml from example
         run: cp secrets.yaml.example secrets.yaml
       - name: Build ESPHome firmware to verify configuration
