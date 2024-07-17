@@ -1,6 +1,6 @@
 substitutions:
-  friendly_name: "Office - AtomS3 BT Proxy"
-  devicename: "atoms3-btproxy-office"
+  friendly_name: "AtomS3 BT Proxy"
+  devicename: "atoms3-btproxy"
   device_description: "M5AtomS3"
 
 esp32:
