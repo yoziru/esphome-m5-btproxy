@@ -10,7 +10,7 @@ esphome:
   comment: ${device_description}
   project:
     name: yoziru.esphome-m5-btproxy
-    version: "2024.06.28"
+    version: "2024.07.17"
 
 packages:
   common: !include common.yml
