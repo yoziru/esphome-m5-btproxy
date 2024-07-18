@@ -23,11 +23,6 @@ on:
         required: false
         type: string
         default: manifest.json
-      esphome_version:
-        description: Version of ESPHome to build for.
-        required: false
-        type: string
-        default: latest
 
 jobs:
   prepare:
@@ -53,12 +48,18 @@ jobs:
       - uses: actions/checkout@v4.1.7
       - name: Mock secrets.yaml from example
         run: cp secrets.yaml.example secrets.yaml
+      - name: Get ESPHome version
+        id: get_esphome_version
+        # read esphome version from requirements.txt
+        run: |
+          esphome_version=$(grep esphome requirements.txt | cut -d'=' -f3)
+          echo "esphome_version=$esphome_version" >> "$GITHUB_OUTPUT"
       - uses: esphome/build-action@v3.2.0
         id: esphome-build
         with:
           cache: false
           yaml_file: ${{ matrix.file }}
-          version: ${{ inputs.esphome_version }}
+          version: ${{ steps.get_esphome_version.outputs.esphome_version }}
       - run: |
           mkdir output
           mv "${{ steps.esphome-build.outputs.name }}" output/
