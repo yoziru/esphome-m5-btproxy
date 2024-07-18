@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 BOARD := m5stack-atoms3
-PROJECT := btproxy
+PROJECT := esphome-m5-btproxy
 TARGET := $(PROJECT)-$(BOARD).yml
 HOST_SUFFIX := ""
 
