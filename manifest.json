@@ -1,13 +1,13 @@
 {
   "name": "ESPHome M5 BTProxy",
-  "version": "2024.07.18",
+  "version": "2024.7.18",
   "home_assistant_domain": "esphome",
   "new_install_skip_erase": false,
   "builds": {
     "chipFamily": "ESP32-C6",
     "ota": {
       "path": "esphome-m5-btproxy-esp32c6/esphome-m5-btproxy-esp32c6.ota.bin",
-      "md5": "4e754e79f8366ad44eedeb4ca48a2c51"
+      "md5": "c953e94b98eb2e90b8db60b7e312c381"
     },
     "parts": [
       {
@@ -19,14 +19,14 @@
 }
 {
   "name": "ESPHome M5 BTProxy",
-  "version": "2024.07.18",
+  "version": "2024.7.18",
   "home_assistant_domain": "esphome",
   "new_install_skip_erase": false,
   "builds": {
     "chipFamily": "ESP32-S3",
     "ota": {
       "path": "esphome-m5-btproxy-esp32s3/esphome-m5-btproxy-esp32s3.ota.bin",
-      "md5": "5db5db222c0d716bbb03f7b68ba6a77a"
+      "md5": "204e547aa767a845af5f5687283afbb7"
     },
     "parts": [
       {
