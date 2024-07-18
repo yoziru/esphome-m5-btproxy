@@ -28,8 +28,19 @@ time:
     id: homeassistant_time
 
 ota:
-  platform: esphome
-  password: !secret ota_password
+  - platform: esphome
+    password: !secret ota_password
+  - platform: http_request
+    id: ota_http_request
+
+update:
+  - platform: http_request
+    id: update_http_request
+    entity_category: diagnostic
+    name: Firmware
+    source: https://raw.githubusercontent.com/yoziru/esphome-m5-btproxy/gh-pages/manifest.json
+
+http_request:
 
 wifi:
   ssid: !secret wifi_ssid
