@@ -1,0 +1,11 @@
+substitutions:
+  friendly_name: "Atom BT Proxy"
+  devicename: "atom-btproxy"
+  device_description: "M5Atom"
+  
+esp32:
+  board: m5stack-atom
+  framework:
+    type: esp-idf
+    version: 5.2.2
+    platform_version: 6.7.0

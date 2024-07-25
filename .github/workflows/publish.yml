@@ -9,5 +9,5 @@ jobs:
   publish:
     uses: ./.github/workflows/publish-common.yml
     with:
-      files: esphome-m5-btproxy-m5stack-atoms3.yml,esphome-m5-btproxy-m5stack-nanoc6.yml
+      files: esphome-m5-btproxy-m5stack-atom.yml,esphome-m5-btproxy-m5stack-atoms3.yml,esphome-m5-btproxy-m5stack-nanoc6.yml
       name: ESPHome M5 BTProxy
