@@ -2,7 +2,7 @@
   "chipFamily": "ESP32-S3",
   "ota": {
     "path": "esphome-m5-btproxy-esp32s3/esphome-m5-btproxy-esp32s3.ota.bin",
-    "md5": "da145551e10e96fa218dec00cd5c9b9f"
+    "md5": "63182241a1c821b2d38d253ab829c1ef"
   },
   "parts": [
     {
