@@ -34,3 +34,4 @@ wifi:
     password: !secret wifi_hotspot_password
 
 captive_portal:
+improv_serial:
