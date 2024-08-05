@@ -1,0 +1,13 @@
+{
+  "chipFamily": "ESP32",
+  "ota": {
+    "path": "m5-btproxy-esp32/m5-btproxy-esp32.ota.bin",
+    "md5": "146fa5b0642ea5bf97262e7789ea2061"
+  },
+  "parts": [
+    {
+      "path": "m5-btproxy-esp32/m5-btproxy-esp32.factory.bin",
+      "offset": 0
+    }
+  ]
+}

@@ -1,18 +1,18 @@
 {
   "name": "ESPHome M5 BTProxy",
-  "version": "2024.7.18",
+  "version": "2024.8.0",
   "home_assistant_domain": "esphome",
   "new_install_skip_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32",
       "ota": {
-        "path": "esphome-m5-btproxy-esp32/esphome-m5-btproxy-esp32.ota.bin",
-        "md5": "40cfd211d97d9f8ad79af8760f7b6838"
+        "path": "m5-btproxy-esp32/m5-btproxy-esp32.ota.bin",
+        "md5": "146fa5b0642ea5bf97262e7789ea2061"
       },
       "parts": [
         {
-          "path": "esphome-m5-btproxy-esp32/esphome-m5-btproxy-esp32.factory.bin",
+          "path": "m5-btproxy-esp32/m5-btproxy-esp32.factory.bin",
           "offset": 0
         }
       ]
@@ -20,12 +20,12 @@
     {
       "chipFamily": "ESP32-C6",
       "ota": {
-        "path": "esphome-m5-btproxy-esp32c6/esphome-m5-btproxy-esp32c6.ota.bin",
-        "md5": "27f7e111388ac841311f0d2ead9c70f7"
+        "path": "m5-btproxy-esp32c6/m5-btproxy-esp32c6.ota.bin",
+        "md5": "8e712d2c27d8c25b741cb68253ef502a"
       },
       "parts": [
         {
-          "path": "esphome-m5-btproxy-esp32c6/esphome-m5-btproxy-esp32c6.factory.bin",
+          "path": "m5-btproxy-esp32c6/m5-btproxy-esp32c6.factory.bin",
           "offset": 0
         }
       ]
@@ -33,12 +33,12 @@
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "esphome-m5-btproxy-esp32s3/esphome-m5-btproxy-esp32s3.ota.bin",
-        "md5": "63182241a1c821b2d38d253ab829c1ef"
+        "path": "m5-btproxy-esp32s3/m5-btproxy-esp32s3.ota.bin",
+        "md5": "63c5533f2f2552abdcdbc2b9582b53b8"
       },
       "parts": [
         {
-          "path": "esphome-m5-btproxy-esp32s3/esphome-m5-btproxy-esp32s3.factory.bin",
+          "path": "m5-btproxy-esp32s3/m5-btproxy-esp32s3.factory.bin",
           "offset": 0
         }
       ]
