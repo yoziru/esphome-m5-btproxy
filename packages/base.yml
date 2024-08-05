@@ -1,7 +1,7 @@
 substitutions:
-  friendly_name: ESPHome M5 BTProxy
-  device_name: esphome-m5-btproxy
-  device_description:  M5Stack Bluetooth Proxy
+  friendly_name: M5 BTProxy
+  device_name: m5-btproxy
+  device_description:  M5Stack Bluetooth Proxy for Home Assistant
 
 esphome:
   name: ${device_name}
@@ -10,10 +10,12 @@ esphome:
   comment: ${device_description}
   project:
     name: yoziru.esphome-m5-btproxy
-    version: "2024.7.18"
+    version: "2024.8.0"
 
 packages:
+  board: !include board.yml
   common: !include common.yml
+  project: !include project.yml
 
 logger:
   level: INFO

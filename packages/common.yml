@@ -1,15 +1,3 @@
-# Setup BLE config
-esp32_ble_tracker:
-  scan_parameters:
-    # We currently use the defaults to ensure Bluetooth
-    # can co-exist with WiFi In the future we may be able to
-    # enable the built-in coexistence logic in ESP-IDF
-    active: true
-
-# Enable BT proxy
-bluetooth_proxy:
-  active: true
-
 sensor:
   - platform: wifi_signal
     name: "WiFi Signal"
@@ -21,9 +9,9 @@ sensor:
     update_interval: 60s
     icon: mdi:clock-outline
 
-time:
-  - platform: homeassistant
-    id: esptime
+binary_sensor:
+  - platform: status
+    name: "Status"
 
 text_sensor:
   - platform: version
@@ -32,6 +20,10 @@ text_sensor:
   - platform: wifi_info
     ip_address:
       name: "IP Address"
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
 
 button:
   - platform: restart
