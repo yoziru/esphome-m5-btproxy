@@ -36,8 +36,6 @@ light:
     rgb_order: GRB
     pin: 35
     num_leds: 4
-    # RMT 0 channels will be occupied by IR
-    rmt_channel: 1
     chipset: ws2812
     id: led
     name: "Led"
