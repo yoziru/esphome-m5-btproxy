@@ -5,3 +5,4 @@ secrets.yaml
 .DS_Store
 .venv
 firmware.bin.gz
+.selected_suffix
