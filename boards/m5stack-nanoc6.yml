@@ -41,6 +41,12 @@ binary_sensor:
     entity_category: diagnostic
     pin:
       number: GPIO9
+
+      # M5Stack intended to use the GPIO9 for the button to allow the user to
+      # force the ESP into download mode. Acknowledge the warning from ESPHome.
+      # See "Download Mode" in https://docs.m5stack.com/en/core/M5NanoC6
+      ignore_strapping_warning: true
+
       inverted: true
       mode:
         input: true
