@@ -21,7 +21,7 @@ light:
   - platform: esp32_rmt_led_strip
     rgb_order: GRB
     pin: GPIO20
-    num_leds: 4
+    num_leds: 1
     chipset: ws2812
     name: "RGB LED"
     entity_category: diagnostic
