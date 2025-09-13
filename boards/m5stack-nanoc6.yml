@@ -14,6 +14,7 @@ esp32:
 light:
   - platform: status_led
     name: "Status LED"
+    id: blue_status_led
     entity_category: diagnostic
     pin: GPIO7
 
@@ -24,6 +25,7 @@ light:
     num_leds: 4
     chipset: ws2812
     name: "RGB LED"
+    id: rgb_led
     entity_category: diagnostic
     power_supply: rgbpwr
 
@@ -38,6 +40,7 @@ power_supply:
 binary_sensor:
   - platform: gpio
     name: Button
+    id: case_button
     entity_category: diagnostic
     pin:
       number: GPIO9
