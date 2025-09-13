@@ -26,6 +26,7 @@ light:
     name: "RGB LED"
     entity_category: diagnostic
     power_supply: rgbpwr
+    default_transition_length: 150ms
 
 power_supply:
   - id: 'rgbpwr'
