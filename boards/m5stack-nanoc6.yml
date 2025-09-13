@@ -29,7 +29,6 @@ light:
 
 power_supply:
   - id: 'rgbpwr'
-    enable_on_boot: true
     pin: GPIO19
     enable_time: 10ms
     keep_on_time: 10ms
