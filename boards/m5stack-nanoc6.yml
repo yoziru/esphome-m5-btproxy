@@ -30,7 +30,6 @@ light:
 
 power_supply:
   - id: 'rgbpwr'
-    enable_on_boot: true
     pin: GPIO19
 
     # According to the datasheet of the Awinic AW35122FDR, it takes the load
