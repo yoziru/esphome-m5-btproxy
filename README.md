@@ -87,6 +87,8 @@ api:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+  ap:
+    password: !secret wifi_hotspot_password
 ```
 
 #### Different board
