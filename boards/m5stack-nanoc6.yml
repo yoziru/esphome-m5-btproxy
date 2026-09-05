@@ -31,7 +31,7 @@ light:
     default_transition_length: 150ms
 
 power_supply:
-  - id: 'rgbpwr'
+  - id: "rgbpwr"
     pin: GPIO19
 
     # According to the datasheet of the Awinic AW35122FDR, it takes the load
