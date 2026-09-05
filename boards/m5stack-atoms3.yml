@@ -10,31 +10,31 @@ output:
     id: status_output
     type: binary
     write_action:
-    - if:
-        condition:
-          lambda: return (state);
-        then:
-          - light.turn_on:
-              id: led
-              brightness: 70%
-              red: 100%
-              green: 0%
-              blue: 0%
-        else:
-          - light.turn_off: led
+      - if:
+          condition:
+            lambda: return (state);
+          then:
+            - light.turn_on:
+                id: led
+                brightness: 70%
+                red: 100%
+                green: 0%
+                blue: 0%
+          else:
+            - light.turn_off: led
 
 light:
   # Enable status LED
   - platform: status_led
     output: status_output
     name: "Status Led"
-    internal: True
+    internal: true
     entity_category: diagnostic
 
-  #G35=RGB WS2812C-2020
+  #G35=RGB WS2812C-2020 (4x LEDs under the button)
   - platform: esp32_rmt_led_strip
     channel_colors: GRB
-    pin: 35
+    pin: GPIO35
     num_leds: 4
     chipset: ws2812
     id: led
