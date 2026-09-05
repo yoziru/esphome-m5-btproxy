@@ -1,7 +1,7 @@
 esphome:
   project:
     name: yoziru.esphome-m5-btproxy
-    version: "2024.8.0"
+    version: "2026.8.2"
 
 # Setup BLE config
 esp32_ble_tracker:
