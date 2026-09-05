@@ -11,9 +11,8 @@ esp32_ble_tracker:
     # enable the built-in coexistence logic in ESP-IDF
     continuous: false
 
-# Enable BT proxy
+# Enable BT proxy (active connections default to true on ESP32)
 bluetooth_proxy:
-  active: true
 
 # Activate scan only after wifi connect, see https://github.com/esphome/issues/issues/2941#issuecomment-1842369092
 wifi:
