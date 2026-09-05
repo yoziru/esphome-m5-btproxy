@@ -54,7 +54,7 @@ packages:
 
 6. Save and **Install**. Future firmware updates are applied from this same device card with **Update**.
 
-Use the matching `.dashboard.yml` file from the board table above for other hardware.
+Use the matching `.dashboard.yml` file from the board table above for other hardware. If the upload reaches 100% then fails with `ERROR receiving update end result: Finishing update failed`, the board file doesn't match the physical chip (seen with NanoC6 firmware on an AtomS3) — the image compiles for any target but the device only accepts its own chip, so switch `files:` to the `.dashboard.yml` matching your hardware.
 
 Set `m5_btproxy_ref` once to test a branch, tag, or commit SHA. It selects the YAML package version. Local CLI builds need no override because they use the current checkout's `packages/` directory.
 
@@ -88,6 +88,30 @@ wifi:
 ```
 
 Add an `ota_password` secret before installing. Use a unique, high-entropy password; it protects the device's OTA update endpoint.
+
+#### Different board
+
+Boards without a pre-made file can use `files: [packages/dashboard.yml]` directly. Provide own `board:`/`variant:`/`flash_size:` substitutions matching the physical chip (`flash_size` <= actual flash), copy the `esp32:` framework block from the closest `boards/*.yml`, and add own status LED/button if wanted (see `boards/m5stack-nanoc6.yml` for the pattern). Keep the generated `esphome`, `api`, and `wifi` sections as above:
+
+```yaml
+substitutions:
+  board: esp32-c6-devkitm-1
+  variant: esp32c6
+  flash_size: 4MB
+  m5_btproxy_ref: main
+  ota_password: !secret ota_password
+
+packages:
+  yoziru.esphome-m5-btproxy:
+    url: https://github.com/yoziru/esphome-m5-btproxy.git
+    ref: ${m5_btproxy_ref}
+    files: [packages/dashboard.yml]
+
+esp32:
+  framework:
+    sdkconfig_options:
+      CONFIG_OPENTHREAD_ENABLED: n
+```
 
 ### CLI
 
