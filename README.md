@@ -54,7 +54,9 @@ packages:
 
 6. Save and **Install**. Future firmware updates are applied from this same device card with **Update**.
 
-Use the matching `.dashboard.yml` file from the board table above for other hardware. If the upload reaches 100% then fails with `ERROR receiving update end result: Finishing update failed`, the board file doesn't match the physical chip (seen with NanoC6 firmware on an AtomS3) — the image compiles for any target but the device only accepts its own chip, so switch `files:` to the `.dashboard.yml` matching your hardware.
+Use the matching `.dashboard.yml` file from the board table above for other hardware.
+
+**Wrong board?** If the upload reaches 100% but ends with `Finishing update failed`, the board file doesn't match your chip (e.g. NanoC6 firmware on an AtomS3). Switch `files:` to the `.dashboard.yml` for your hardware and install again.
 
 Set `m5_btproxy_ref` once to test a branch, tag, or commit SHA. It selects the YAML package version. Local CLI builds need no override because they use the current checkout's `packages/` directory.
 
@@ -87,11 +89,9 @@ wifi:
   password: !secret wifi_password
 ```
 
-Add an `ota_password` secret before installing. Use a unique, high-entropy password; it protects the device's OTA update endpoint.
-
 #### Different board
 
-Boards without a pre-made file can use `files: [packages/dashboard.yml]` directly. Provide own `board:`/`variant:`/`flash_size:` substitutions matching the physical chip (`flash_size` <= actual flash), copy the `esp32:` framework block from the closest `boards/*.yml`, and add own status LED/button if wanted (see `boards/m5stack-nanoc6.yml` for the pattern). Keep the generated `esphome`, `api`, and `wifi` sections as above:
+No pre-made file for your board? Point `files:` at `packages/dashboard.yml` and supply the chip settings yourself: `board`/`variant`/`flash_size` matching the physical chip (`flash_size` at most the actual flash), the full `esp32:` framework block from the closest `boards/*.yml` (see `boards/m5stack-nanoc6.yml`), plus your own status LED/button if wanted.
 
 ```yaml
 substitutions:
@@ -111,6 +111,7 @@ esp32:
   framework:
     sdkconfig_options:
       CONFIG_OPENTHREAD_ENABLED: n
+      # + the rest from the closest boards/*.yml
 ```
 
 ### CLI
