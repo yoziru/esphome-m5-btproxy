@@ -2,7 +2,7 @@
   "chipFamily": "ESP32-C6",
   "ota": {
     "path": "m5-btproxy-esp32c6.ota.bin",
-    "md5": "e7b6354a113a6b39916aacb072a91fc3"
+    "md5": "7c5cefda381fdcd90cb4c76ea8bed57a"
   },
   "parts": [
     {
