@@ -3,4 +3,4 @@ packages:
   device_base: !include boards/m5stack-atom.yml
 
 dashboard_import:
-  package_import_url: github://yoziru/esphome-m5-btproxy/esphome-m5-btproxy-m5stack-atom.yml
+  package_import_url: github://yoziru/esphome-m5-btproxy/esphome-m5-btproxy-m5stack-atom.dashboard.yml@main
