@@ -1,6 +1,6 @@
-# M5Stack AtomS3 / NanoC6 BTProxy
+# M5Stack Atom Lite / AtomS3 / NanoC6 BTProxy
 
-Turn your M5Stack AtomS3 Lite or NanoC6 into a bluetooth proxy for Home Assistant
+Turn your M5Stack Atom Lite, AtomS3 or NanoC6 into a Bluetooth proxy for Home Assistant
 
 ## Boards
 
@@ -13,6 +13,8 @@ Pick the config for your hardware:
 | **M5Stack Atom Lite** | `esphome-m5-btproxy-m5stack-atom.dashboard.yml` | `BOARD=m5stack-atom` |
 | **AtomS3 + I2C sensor** | `esphome-m5-btproxy-m5stack-atoms3-i2c.dashboard.yml` | `BOARD=m5stack-atoms3-i2c` |
 | **NanoC6 + I2C sensor** | `esphome-m5-btproxy-m5stack-nanoc6-i2c.dashboard.yml` | `BOARD=m5stack-nanoc6-i2c` |
+
+Prebuilt firmware for the Atom Lite, AtomS3 and NanoC6 (not the I2C variants) can be flashed directly from your browser: <https://yoziru.github.io/esphome-m5-btproxy/>.
 
 ## Installation
 
