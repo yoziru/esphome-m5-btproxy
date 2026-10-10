@@ -43,6 +43,13 @@ jobs:
         run: |
           esphome_version=$(grep esphome requirements.txt | cut -d'=' -f3)
           echo "esphome_version=$esphome_version" >> "$GITHUB_OUTPUT"
+      - name: Check project version matches ESPHome version
+        run: |
+          version="${{ steps.get_esphome_version.outputs.esphome_version }}"
+          grep -q "version: \"$version\"" packages/project.yml || {
+            echo "::error::packages/project.yml project version must match requirements.txt ($version)"
+            exit 1
+          }
       - uses: actions/setup-python@v7.0.0
         with:
           python-version: "3.12"
