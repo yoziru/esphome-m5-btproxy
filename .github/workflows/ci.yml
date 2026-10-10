@@ -29,3 +29,46 @@ jobs:
         with:
           yaml-file: ${{ matrix.file }}
           version: ${{ steps.get_esphome_version.outputs.esphome_version }}
+
+  validate:
+    name: Validate all configurations
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.3.0
+      - name: Mock secrets.yaml from example
+        run: cp secrets.yaml.example secrets.yaml
+      - name: Get ESPHome version
+        id: get_esphome_version
+        # read esphome version from requirements.txt
+        run: |
+          esphome_version=$(grep esphome requirements.txt | cut -d'=' -f3)
+          echo "esphome_version=$esphome_version" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install ESPHome
+        run: pip install esphome==${{ steps.get_esphome_version.outputs.esphome_version }}
+      - name: Validate all CLI board configurations
+        run: |
+          for file in esphome-m5-btproxy-*.yml; do
+            case "$file" in
+              *.dashboard.yml) continue ;;
+            esac
+            echo "::group::esphome config $file"
+            esphome config "$file"
+            echo "::endgroup::"
+          done
+      - name: Validate Device Builder dashboard configurations
+        run: |
+          esphome config tests/dashboard_config.yml
+          for file in esphome-m5-btproxy-*.dashboard.yml; do
+            board=${file#esphome-m5-btproxy-}
+            board=${board%.dashboard.yml}
+            generated="tests/dashboard_config_${board}.yml"
+            sed "s|/esphome-m5-btproxy-m5stack-nanoc6.dashboard.yml|/${file}|" tests/dashboard_config.yml > "$generated"
+            grep -Fq "$file" "$generated"
+            echo "::group::esphome config $generated"
+            esphome config "$generated"
+            echo "::endgroup::"
+            rm "$generated"
+          done
