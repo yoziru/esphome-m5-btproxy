@@ -8,7 +8,7 @@
       "chipFamily": "ESP32",
       "ota": {
         "path": "m5-btproxy-esp32.ota.bin",
-        "md5": "faa7e93728910352baadd893b651ee66"
+        "md5": "57f96940350c281a570fa840db25612f"
       },
       "parts": [
         {
@@ -21,7 +21,7 @@
       "chipFamily": "ESP32-C6",
       "ota": {
         "path": "m5-btproxy-esp32c6.ota.bin",
-        "md5": "a29ae4b2c1640b0c4ce059246f749b43"
+        "md5": "053062f71514fbf13e5acf1576ebb9ae"
       },
       "parts": [
         {
@@ -34,7 +34,7 @@
       "chipFamily": "ESP32-S3",
       "ota": {
         "path": "m5-btproxy-esp32s3.ota.bin",
-        "md5": "c36a48a5dc006f6cc28e95e226ec170f"
+        "md5": "209040832ab74925d384423c73165a36"
       },
       "parts": [
         {
