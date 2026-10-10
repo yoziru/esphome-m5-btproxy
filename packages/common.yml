@@ -19,10 +19,6 @@ text_sensor:
     ip_address:
       name: "IP Address"
 
-time:
-  - platform: homeassistant
-    id: homeassistant_time
-
 button:
   - platform: restart
     name: Restart
