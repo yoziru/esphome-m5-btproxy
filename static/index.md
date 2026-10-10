@@ -1,6 +1,6 @@
 # About
 
-Turn your M5Stack AtomS3 Lite or NanoC6 into a bluetooth proxy for Home Assistant.
+Turn your M5Stack Atom Lite, AtomS3 or NanoC6 into a Bluetooth proxy for Home Assistant.
 
 # Installation
 
