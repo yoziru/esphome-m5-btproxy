@@ -1,5 +1,5 @@
-.base: !include &base m5stack-nanoc6.yml
-<<: *base
+packages:
+  board_base: !include m5stack-nanoc6.yml
 
 # Illuminance Sensor
 i2c:
