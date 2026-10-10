@@ -4,6 +4,8 @@
 # Usage: In your project's Makefile, set PROJECT and optionally BOARD, then include this file.
 
 PROJECT ?= default-project
+# DEVICE_NAME is the device hostname (esphome.name before the MAC suffix); PROJECT is the config filename prefix. Both are overridden per project.
+DEVICE_NAME ?= $(PROJECT)
 BOARD ?=
 TARGET ?= $(if $(BOARD),$(PROJECT)-$(BOARD).yml,$(PROJECT).yml)
 BOARD_FILES ?= $(if $(BOARD),boards/$(BOARD).yml)
@@ -19,8 +21,8 @@ UV_CHECK = @command -v uv >/dev/null 2>&1 || { \
 check-uv:
 	$(UV_CHECK)
 
-# Compile the binary only if YAML sources or dependencies change
-compile: .esphome/build/$(PROJECT)/.pioenvs/$(PROJECT)/firmware.bin  ## Read the configuration and compile the binary.
+compile: check-uv ## Read the configuration and compile the binary.
+	uvx --with pip esphome==$(ESPHOME_VERSION) compile $(TARGET)
 
 validate-config: check-uv ## Validate the configuration without building the binary
 	uvx --with pip esphome==$(ESPHOME_VERSION) config $(TARGET)
@@ -28,12 +30,7 @@ validate-config: check-uv ## Validate the configuration without building the bin
 validate-dashboard-config: check-uv ## Validate the generated-style ESPHome Device Builder configuration
 	uvx --with pip esphome==$(ESPHOME_VERSION) config tests/dashboard_config.yml
 
-# Build firmware.bin if YAML sources or dependencies change
-.esphome/build/$(PROJECT)/.pioenvs/$(PROJECT)/firmware.bin: $(TARGET) packages/*.yml $(BOARD_FILES) requirements.txt $(shell command -v uv 2>/dev/null)
-	$(UV_CHECK)
-	uvx --with pip esphome==$(ESPHOME_VERSION) compile $(TARGET)
-
-upload: .esphome/build/$(PROJECT)/.pioenvs/$(PROJECT)/firmware.bin check-uv ## Validate the configuration, create a binary, upload it, and start logs.
+upload: check-uv ## Validate the configuration, create a binary, upload it, and start logs.
 	@suffix="$(HOST_SUFFIX)"; \
 	if [ -z "$$suffix" ] && [ -f .selected_suffix ]; then \
 		suffix=$$(cat .selected_suffix); \
@@ -41,7 +38,7 @@ upload: .esphome/build/$(PROJECT)/.pioenvs/$(PROJECT)/firmware.bin check-uv ## V
 	if [ -z "$$suffix" ]; then \
 		uvx --with pip esphome==$(ESPHOME_VERSION) run $(TARGET); \
 	else \
-		uvx --with pip esphome==$(ESPHOME_VERSION) run $(TARGET) --device $(PROJECT)$$suffix; \
+		uvx --with pip esphome==$(ESPHOME_VERSION) run $(TARGET) --device $(DEVICE_NAME)$$suffix; \
 	fi
 
 logs: check-uv ## Start logs.
@@ -52,30 +49,30 @@ logs: check-uv ## Start logs.
 	if [ -z "$$suffix" ]; then \
 		uvx --with pip esphome==$(ESPHOME_VERSION) logs $(TARGET); \
 	else \
-		uvx --with pip esphome==$(ESPHOME_VERSION) logs $(TARGET) --device $(PROJECT)$$suffix; \
+		uvx --with pip esphome==$(ESPHOME_VERSION) logs $(TARGET) --device $(DEVICE_NAME)$$suffix; \
 	fi
 
 discover: ## Discover ESPHome devices on the network
-	@PROJECT=$(PROJECT) bash -c ' \
+	@DEVICE_NAME=$(DEVICE_NAME) bash -c ' \
 	echo "Scanning network for ESPHome devices..."; \
-	devices=($$(timeout 2 dns-sd -B _esphomelib._tcp local 2>/dev/null | grep "Add" | grep "$$PROJECT" | awk "{print \$$NF}" | sed "s/$$PROJECT-//" | sed "s/\.local//")); \
+	devices=($$( { dns-sd -B _esphomelib._tcp local 2>/dev/null & pid=$$!; sleep 2; kill $$pid 2>/dev/null; } | grep "Add" | grep "$$DEVICE_NAME" | awk "{print \$$NF}" | sed "s/$$DEVICE_NAME-//" | sed "s/\.local//" | sort -u )); \
 	if [ $${#devices[@]} -eq 0 ]; then \
 		echo "No devices found (or dns-sd timed out)"; \
 	else \
 		selected=$${devices[0]}; \
-		echo "Using device: $$PROJECT-$$selected"; \
+		echo "Using device: $$DEVICE_NAME-$$selected"; \
 		echo "-$$selected" > .selected_suffix; \
 		if [ $${#devices[@]} -gt 1 ]; then \
 			echo "Other devices found:"; \
 			for i in $${!devices[@]}; do \
 				if [ $$i -gt 0 ]; then \
-					echo "  $$PROJECT-$${devices[i]}"; \
+					echo "  $$DEVICE_NAME-$${devices[i]}"; \
 				fi; \
 			done; \
 		fi; \
 	fi'
 
-.PHONY: clean validate-dashboard-config
+.PHONY: clean validate-dashboard-config compile
 clean: ## Remove the esphome build directory
 	rm -rf .esphome .selected_suffix
 
