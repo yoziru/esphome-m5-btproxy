@@ -16,6 +16,9 @@ ota:
 captive_portal:
 
 wifi:
+  # Match CLI builds (base.yml): 802.11k/v to help roaming between APs.
+  enable_rrm: true
+  enable_btm: true
   # Device Builder owns ssid/password; the package only ensures the fallback
   # AP exists so captive_portal has something to serve on (otherwise config
   # validation warns "no WiFi AP is configured"). Open hotspot named after
