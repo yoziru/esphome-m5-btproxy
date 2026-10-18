@@ -2,7 +2,7 @@
   "chipFamily": "ESP32",
   "ota": {
     "path": "m5-btproxy-esp32.ota.bin",
-    "md5": "f5aeada4282e015dfc1bd17a23bbeee5"
+    "md5": "663a2cecb8bc3ea4e090550263023f1f"
   },
   "parts": [
     {
