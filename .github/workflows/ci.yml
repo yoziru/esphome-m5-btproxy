@@ -15,7 +15,7 @@ jobs:
           - esphome-m5-btproxy-m5stack-atoms3.yml
           - esphome-m5-btproxy-m5stack-nanoc6.yml
     steps:
-      - uses: actions/checkout@v4.3.0
+      - uses: actions/checkout@v7.0.1
       - name: Mock secrets.yaml from example
         run: cp secrets.yaml.example secrets.yaml
       - name: Get ESPHome version
@@ -34,7 +34,7 @@ jobs:
     name: Validate all configurations
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.3.0
+      - uses: actions/checkout@v7.0.1
       - name: Mock secrets.yaml from example
         run: cp secrets.yaml.example secrets.yaml
       - name: Get ESPHome version
