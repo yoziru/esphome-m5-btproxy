@@ -2,15 +2,15 @@
   "chipFamily": "ESP32-C6",
   "ota": {
     "path": "m5-btproxy-esp32c6.ota.bin",
-    "md5": "cc2e3fc2ecff6b0ba4f28bb632329bbc",
-    "sha256": "735e2789d01a0d2dabaaeeba08307c30de549f861bcfa3faf536e259385ad013"
+    "md5": "4910ce97885eca1783139ce8c04fde37",
+    "sha256": "2f87d3c0aa0108685c2ae514485268b6d8c61ef80c47f47ce98a079405650544"
   },
   "parts": [
     {
       "path": "m5-btproxy-esp32c6.factory.bin",
       "offset": 0,
-      "md5": "951383caacd638146625021b5ddf564e",
-      "sha256": "b1bad3e5192e4b70f89556be7d664f6ec3ed3a7515e7408652fb5f3dad1fa449"
+      "md5": "b08afd2831a7c2dd05becb38ff05d2d6",
+      "sha256": "15cfaeccf4a56ef7f2604b513a91cef61ce67dee6aa5e97e79e16e1ed417670e"
     }
   ]
 }
