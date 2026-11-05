@@ -50,7 +50,7 @@ jobs:
             echo "::error::packages/project.yml project version must match requirements.txt ($version)"
             exit 1
           }
-      - uses: actions/setup-python@v7.0.0
+      - uses: actions/setup-python@v7.1.0
         with:
           python-version: "3.12"
       - name: Install ESPHome
