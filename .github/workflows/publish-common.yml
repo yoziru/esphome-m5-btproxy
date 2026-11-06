@@ -87,6 +87,18 @@ jobs:
           version=$(cat output/project_version)
           jq -s --arg version "$version" '{"name": "${{ inputs.name }}", "version": $version, "home_assistant_domain": "esphome", "new_install_skip_erase": false, "builds":.}' output/*/manifest.json > output/${{ inputs.manifest_filename }}
 
+      # Per-board manifests use paths relative to their own directory; the merged
+      # manifest lives at the site root, so the binaries must sit beside it.
+      # shortcut: binaries exist twice (root and board dir), rewrite paths if Pages size matters
+      - name: Copy firmware next to the merged manifest
+        run: cp output/*/*.bin output/
+
+      - name: Verify every manifest path exists
+        run: |
+          set -o pipefail
+          jq -r '.builds[] | (.ota.path), (.parts[].path)' output/${{ inputs.manifest_filename }} |
+            while IFS= read -r p; do test -f "output/$p" || { echo "missing $p"; exit 1; }; done
+
       - run: cp -R static/* output
 
       - name: Deploy 🚀
