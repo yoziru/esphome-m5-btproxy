@@ -8,15 +8,15 @@
       "chipFamily": "ESP32",
       "ota": {
         "path": "m5-btproxy-esp32.ota.bin",
-        "md5": "06dfae0a9ee37cffc9ac10413e759fa3",
-        "sha256": "05fbf7cc065559486d6d70ea7c539b12fadaab6b191d284a78560e066d4ebb9b"
+        "md5": "6f672ac44ce5964e59dc6491cd74f368",
+        "sha256": "cd26b348252b4f7e21c776214f25bf97695f140185794f44c121d9601a879105"
       },
       "parts": [
         {
           "path": "m5-btproxy-esp32.factory.bin",
           "offset": 0,
-          "md5": "9b505eb834f496bdb44e06fc95c40d41",
-          "sha256": "4f601d2d33c8cc52a64b965c43945b112d489ffc4422b45f848f7ff8540c59a0"
+          "md5": "8ca1cad830c94f827ef5469c00f7cde2",
+          "sha256": "d58cfa782d59cda16eb86c4f7a91badd63cbeb897670527dbaab296aa0a35e12"
         }
       ]
     },
@@ -24,15 +24,15 @@
       "chipFamily": "ESP32-C6",
       "ota": {
         "path": "m5-btproxy-esp32c6.ota.bin",
-        "md5": "a0d2c6648eea86290e64e32eb580d1fa",
-        "sha256": "aa36267b803eb1506a5493522b9c6f3d8f376e9806e93e9acf40efb1e33df41f"
+        "md5": "6c94f7fa1c89ca8486f43dc537ff6bb1",
+        "sha256": "46dc875ff55522e4b9408185a8791552ab123b578d0d57c330793f7bd2166ad0"
       },
       "parts": [
         {
           "path": "m5-btproxy-esp32c6.factory.bin",
           "offset": 0,
-          "md5": "209cc39006c7c1f06a39ff6ab80a4776",
-          "sha256": "7ccdee1ca201b9583a23f30c9a91c520252938fab5d2a91f8ec7491b7295c422"
+          "md5": "7f315899e7fa40ed51f73e02f9e48ab0",
+          "sha256": "a1a8c64638e2bb9b4764c29506b9d5a3869b250ccad3daa672b29e893eec1da9"
         }
       ]
     },
@@ -40,15 +40,15 @@
       "chipFamily": "ESP32-S3",
       "ota": {
         "path": "m5-btproxy-esp32s3.ota.bin",
-        "md5": "df2889f2df9f1627c88b28496d08f7e2",
-        "sha256": "98a4a110840c468c155b24970a45726b5e752a2f1c2aebfea24ca0290b2594c2"
+        "md5": "ee19cdcfe481eb882c959722c2174d93",
+        "sha256": "4c252103ced593ad7af9ea76e1e3596a70a3e934c93499543876d69c8522f232"
       },
       "parts": [
         {
           "path": "m5-btproxy-esp32s3.factory.bin",
           "offset": 0,
-          "md5": "1666fbb3a09b6a5f89a1846b146fcfdb",
-          "sha256": "36878f4f9a4062d5bc0afc3e2607062ad6a29edc56170b0cdf4e7e19d808d85a"
+          "md5": "882bc02c3ea93c5786cb903911dbb6e5",
+          "sha256": "54acbd92362627e5f9e2f4046d3285f71261b33e0c0b018e0744260aa87fdf0c"
         }
       ]
     }
